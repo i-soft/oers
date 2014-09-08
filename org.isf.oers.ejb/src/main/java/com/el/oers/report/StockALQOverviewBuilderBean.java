@@ -34,13 +34,15 @@ public class StockALQOverviewBuilderBean implements Serializable {
 	public static final String FLAT_HIERARCHY = Util.flatLineQuote(HIERARCHY, ",", "'");
 	public static final String[] SUB_HIERARCHY = {"GESAMT", "TRUCK", "TRAILER"};
 	
-	public static final String BASE_SELECT = "select c.type, b.vgroup, a.date_of_event, sum(a.counter) as counter " +
+	public static final String BASE_SELECT = 
+				"select c.country, c.devision, c.type, b.vgroup, a.date_of_event, sum(a.counter) as counter " +
 				"from DWH_DATAMART.sto_f_stock a " +
 				"left join DWH_DATAMART.sto_d_vehicle b on a.vehicle_dwh_id = b.dwh_id " +
 				"left join dwh_datamart.STD_D_HIERARCHY c on a.hierarchy_dwh_id = c.dwh_id " +
-				"where c.country like ? and c.type in ("+FLAT_HIERARCHY+") and a.date_of_event between ? and ? " +
-				"group by c.type, b.vgroup, a.date_of_event  " +
-				"order by a.date_of_event,c.type";
+				"where c.country like ? and c.devision like ? and c.country like ? and c.type in ("+FLAT_HIERARCHY+") " +
+				"and a.date_of_event between ? and ? " +
+				"group by c.country, c.devision, c.type, b.vgroup, a.date_of_event  " +
+				"order by c.country, c.devision, a.date_of_event,c.type";
 
 	@Resource(mappedName="java:/AtlasDSXA")
 	private DataSource atlasDS;
@@ -66,8 +68,10 @@ public class StockALQOverviewBuilderBean implements Serializable {
 			try {
 				pstmt = con.prepareStatement(buildPivotSelect(dates));
 				pstmt.setString(1, "%");
-				pstmt.setDate(2, DateUtil.toSqlDate(dates[0]));
-				pstmt.setDate(3, DateUtil.toSqlDate(dates[dates.length-1]));
+				pstmt.setString(2, "%");
+				pstmt.setString(3, "%");
+				pstmt.setDate(4, DateUtil.toSqlDate(dates[0]));
+				pstmt.setDate(5, DateUtil.toSqlDate(dates[dates.length-1]));
 				res = pstmt.executeQuery();
 				ResultSetMetaData rsmd = res.getMetaData();
 				Container buffer = new Container();
