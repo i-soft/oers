@@ -34,7 +34,7 @@ public class StockALQOverview implements Serializable {
 	private Header header;
 	private ColumnGroup columnGroup;
 	
-	private List<Tuple> list;
+//	private List<Tuple> list;
 	
 	@Inject
 	private StockALQOverviewBuilderBean builder;
@@ -47,7 +47,7 @@ public class StockALQOverview implements Serializable {
 		c.setRowSpan(2);
 		header.addColumn(c);
 		
-		Date[] dates = DateUtil.getLastWeeks(VIEWED_WEEKS-1);
+		Date[] dates = getDates();
 		for (int i=0;i<dates.length;i++) {
 			Date d = dates[i];
 			if (i%7 == 0) {
@@ -62,7 +62,7 @@ public class StockALQOverview implements Serializable {
 		}
 		
 		setColumnGroup(createColumnGroup());
-		setData(builder.build(dates));
+//		setData(builder.build(dates));
 	}
 	
 	public Header getHeader() { return header; }
@@ -95,7 +95,13 @@ public class StockALQOverview implements Serializable {
 		return grp;
 	}
 	
-	public List<Tuple> getData() { return list; }
-	public void setData(List<Tuple> data) { this.list = data; }
+	public Date[] getDates() { return DateUtil.getLastWeeks(VIEWED_WEEKS-1); }
+	
+//	public List<Tuple> getData() { return list; }
+//	public void setData(List<Tuple> data) { this.list = data; }
+	
+	public List<Tuple> getData(String country, String devision) throws Exception {
+		return builder.build(country, devision, getDates());
+	}
 	
 }

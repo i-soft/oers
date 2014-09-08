@@ -35,11 +35,11 @@ public class StockALQOverviewBuilderBean implements Serializable {
 	public static final String[] SUB_HIERARCHY = {"GESAMT", "TRUCK", "TRAILER"};
 	
 	public static final String BASE_SELECT = 
-				"select c.country, c.devision, c.type, b.vgroup, a.date_of_event, sum(a.counter) as counter " +
+				"select c.type, b.vgroup, a.date_of_event, sum(a.counter) as counter " +
 				"from DWH_DATAMART.sto_f_stock a " +
 				"left join DWH_DATAMART.sto_d_vehicle b on a.vehicle_dwh_id = b.dwh_id " +
 				"left join dwh_datamart.STD_D_HIERARCHY c on a.hierarchy_dwh_id = c.dwh_id " +
-				"where c.country like ? and c.devision like ? and c.country like ? and c.type in ("+FLAT_HIERARCHY+") " +
+				"where c.country like ? and c.devision like ? and c.type in ("+FLAT_HIERARCHY+") " +
 				"and a.date_of_event between ? and ? " +
 				"group by c.country, c.devision, c.type, b.vgroup, a.date_of_event  " +
 				"order by c.country, c.devision, a.date_of_event,c.type";
@@ -59,7 +59,7 @@ public class StockALQOverviewBuilderBean implements Serializable {
 		return select;
 	}
 	
-	public List<Tuple> build(Date ... dates) throws Exception {
+	public List<Tuple> build(String country, String devision, Date ... dates) throws Exception {
 		if (dates.length<2) return new ArrayList<Tuple>();
 		Connection con = getConnection();
 		try {
@@ -67,11 +67,10 @@ public class StockALQOverviewBuilderBean implements Serializable {
 			ResultSet res = null; 
 			try {
 				pstmt = con.prepareStatement(buildPivotSelect(dates));
-				pstmt.setString(1, "%");
-				pstmt.setString(2, "%");
-				pstmt.setString(3, "%");
-				pstmt.setDate(4, DateUtil.toSqlDate(dates[0]));
-				pstmt.setDate(5, DateUtil.toSqlDate(dates[dates.length-1]));
+				pstmt.setString(1, country);
+				pstmt.setString(2, devision);
+				pstmt.setDate(3, DateUtil.toSqlDate(dates[0]));
+				pstmt.setDate(4, DateUtil.toSqlDate(dates[dates.length-1]));
 				res = pstmt.executeQuery();
 				ResultSetMetaData rsmd = res.getMetaData();
 				Container buffer = new Container();
@@ -150,7 +149,6 @@ public class StockALQOverviewBuilderBean implements Serializable {
 							t.addData(st.getData(j));
 						output.addTuple(t);
 					}
-				System.out.println(output.size());
 				return output.list();
 			} finally {
 				try { res.close(); } catch(Exception e) { }

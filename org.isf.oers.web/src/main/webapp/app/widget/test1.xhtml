@@ -11,7 +11,7 @@
 <h:body>
 	<ui:composition>
 		<h:form id="stock-alq-overview-form">
-			<p:dataTable var="dat" value="#{stockALQOverview.data}" style="font-size: 8pt;">
+			<p:dataTable var="dat" value="#{stockALQOverview.getData('DE', 'LZM')}" style="font-size: 8pt;">
 				<p:columnGroup binding="#{stockALQOverview.columnGroup}" />
 				
 				<p:column>
