@@ -38,7 +38,7 @@ public class StockALQOverviewBuilderBean implements Serializable {
 				"from DWH_DATAMART.sto_f_stock a " +
 				"left join DWH_DATAMART.sto_d_vehicle b on a.vehicle_dwh_id = b.dwh_id " +
 				"left join dwh_datamart.STD_D_HIERARCHY c on a.hierarchy_dwh_id = c.dwh_id " +
-				"where c.country = 'DE' and c.type in ("+FLAT_HIERARCHY+") and a.date_of_event between ? and ? " +
+				"where c.country like ? and c.type in ("+FLAT_HIERARCHY+") and a.date_of_event between ? and ? " +
 				"group by c.type, b.vgroup, a.date_of_event  " +
 				"order by a.date_of_event,c.type";
 
@@ -65,8 +65,9 @@ public class StockALQOverviewBuilderBean implements Serializable {
 			ResultSet res = null; 
 			try {
 				pstmt = con.prepareStatement(buildPivotSelect(dates));
-				pstmt.setDate(1, DateUtil.toSqlDate(dates[0]));
-				pstmt.setDate(2, DateUtil.toSqlDate(dates[dates.length-1]));
+				pstmt.setString(1, "%");
+				pstmt.setDate(2, DateUtil.toSqlDate(dates[0]));
+				pstmt.setDate(3, DateUtil.toSqlDate(dates[dates.length-1]));
 				res = pstmt.executeQuery();
 				ResultSetMetaData rsmd = res.getMetaData();
 				Container buffer = new Container();
