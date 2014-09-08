@@ -1,0 +1,87 @@
+#app-page {
+	position: absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	min-width: 750px;
+	min-height: 400px;
+	background-color: gray;
+}
+
+#app-header {
+	background-color: #1F2126;
+	height: 50px;
+}
+
+#app-header img {
+	margin-left: 5px;
+	margin-top:5px;
+	width: auto;
+	height: 40px;
+	z-index: 1;
+}
+
+#app-header a {
+	position:absolute;
+	margin-top:5px;
+	margin-right:5px;
+	right:10px;
+	text-decoration: none;
+	font-size: 1.8em;
+	font-weight: bold;
+	color: white;
+}
+
+#app-header a:VISITED {
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+}
+
+#app-header a:HOVER {
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+}
+
+#app-left-menu {
+	background-color: green;
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 250px;
+	min-height: 20px;
+}
+
+#app-left-menu .ui-menu {
+	width: 237px;
+}
+
+#app-content {
+	background-color: yellow;
+	min-height: 50px;
+	margin-top: 5px;
+	margin-left: 260px;
+	margin-right: 5px;
+}
+
+#app-footer {
+	background-color: #1F2126;
+	color: white;
+	position:fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	min-height: 10px;
+	margin-top: 5px;
+	z-index: 90;
+}
+
+.ui-dashboard-column {
+	min-width: 200px;
+}
+
+.ui-dashboard-column .ui-panel {
+	margin-right: 5px;
+	margin-bottom: 5px;
+}

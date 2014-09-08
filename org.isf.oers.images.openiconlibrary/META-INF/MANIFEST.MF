@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Openiconlibrary
+Bundle-SymbolicName: org.isf.oers.images.openiconlibrary
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: org.isf.oers.images;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

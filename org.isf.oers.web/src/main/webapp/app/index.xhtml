@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+     <ui:composition template="/app/template/template.xhtml">
+     	<ui:define name="app-content">
+     		<h:form id="main-dashboard-form">
+	     		<p:dashboard id="default-dash" model="#{webSession.dashboardModel('default')}">
+	     			<p:ajax event="reorder" listener="#{webSession.handleDashReorder}" update=":app-main-messaging-form:main-messages" />
+	     			
+					<c:forEach items="#{webSession.listWidgets()}" var="w" varStatus="state">
+						<p:panel id="widget-#{w.name}" toggleable="true" closable="true" header="#{w.name}" style="#{w.getProperty('style')}" >
+							<ui:include src="#{w.path}" />
+						</p:panel>
+					</c:forEach>
+				</p:dashboard>
+				
+				<div style="clear:both" />
+				
+				
+			</h:form>
+     	</ui:define>
+     </ui:composition> 
+      
+</html>

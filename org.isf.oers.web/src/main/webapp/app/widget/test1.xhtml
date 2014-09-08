@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition>
+		<h:form id="stock-alq-overview-form">
+			<p:dataTable var="dat" value="#{stockALQOverview.data}" style="font-size: 8pt;">
+				<p:columnGroup binding="#{stockALQOverview.columnGroup}" />
+				
+				<p:column>
+					<h:outputText value="#{dat.getData(0)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(1)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(2)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(3)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(4)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(5)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(6)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(7)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(8)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(9)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(10)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(11)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(12)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(13)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(14)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(15)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(16)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(17)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(18)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(19)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(20)}" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{dat.getData(21)}" />
+				</p:column>
+				
+			</p:dataTable>
+		</h:form>
+	</ui:composition>
+</h:body>
+      
+</html>

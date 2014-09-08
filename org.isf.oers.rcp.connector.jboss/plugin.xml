@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.isf.oers.rcp.connector.connector">
+      <connectorDefinition
+            class="org.isf.oers.rcp.connector.jboss.JBossConnector"
+            id="org.isf.oers.rcp.connector.jboss.jboss71"
+            name="JBoss 7.1 Connector"
+            sessionProvider="true">
+      </connectorDefinition>
+   </extension>
+
+</plugin>

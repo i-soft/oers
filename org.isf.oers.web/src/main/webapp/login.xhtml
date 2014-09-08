@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+	<title>#{uimsg.welcome}</title>
+</h:head> 
+<h:body> 
+	<h:form>
+		<p:dialog header="#{uimsg.welcome}" widgetVar="dlg" resizable="false" closable="false" visible="true" draggable="false">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="username" value="#{uimsg.username}" />
+				<p:inputText id="username" required="true" label="username" value="#{loginBean.username}" />
+				<h:outputLabel for="password" value="#{uimsg.password}" />
+				<p:password id="password" required="true" label="password" value="#{loginBean.password}" />
+				
+				<f:facet name="footer">
+					<p:commandButton value="#{uimsg.login}" action="#{loginBean.login()}" />
+				</f:facet>
+			</h:panelGrid>
+		</p:dialog>
+	</h:form>
+</h:body> 
+</html>

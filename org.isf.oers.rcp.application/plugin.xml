@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="org.isf.oers.rcp.application"
+            application="org.eclipse.e4.ui.workbench.swt.E4Application">
+         <property
+               name="applicationCSS"
+               value="platform:/plugin/org.isf.oers.rcp.application/css/default.css">
+         </property>
+         <property
+               name="appName"
+               value="OERS Client">
+         </property>
+         <property
+         		name="lifeCycleURI"
+         		value="bundleclass://org.isf.oers.rcp.application/org.isf.oers.rcp.application.LifeCycleHandler">
+         </property>
+      </product>
+   </extension>
+
+</plugin>

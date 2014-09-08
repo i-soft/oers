@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JBoss Connector
+Bundle-SymbolicName: org.isf.oers.rcp.connector.jboss;singleton:=true
+Bundle-Version: 1.0.1
+Bundle-Vendor: i-soft.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.isf.oers.rcp.connector;bundle-version="1.0.0",
+ org.jboss.client;bundle-version="7.1.1";visibility:=reexport
+Export-Package: org.isf.oers.rcp.connector.jboss

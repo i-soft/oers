@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<name>OERS-Session-Provider</name>
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+        <artifactId>oers-pom</artifactId>
+        <groupId>org.isf.oers</groupId>
+        <version>1.0.1</version>
+		<relativePath>../oers-pom</relativePath>
+    </parent>
+	
+	<artifactId>rcp-session</artifactId>
+	<packaging>eclipse-plugin</packaging>
+    
+    
+   <!--<dependencies>
+    	<dependency>
+    		<groupId>org.isf.oers</groupId>
+    		<artifactId>oers-core</artifactId>
+    		<version>1.0.1</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>org.isf</groupId>
+    		<artifactId>commons</artifactId>
+    	</dependency>
+    </dependencies>
+    
+    <build>
+    	<plugins>
+    		<plugin>
+    			<groupId>org.apache.felix</groupId>
+    			<artifactId>maven-bundle-plugin</artifactId>
+    			<extensions>true</extensions>
+    			<configuration>
+    				<manifestLocation>META-INF</manifestLocation>
+    				<instructions>
+	                    <Import-Package>*;version="0.0.0"</Import-Package>
+	                    <Require-Bundle>org.isf.oers.core</Require-Bundle>			
+    				</instructions>
+    			</configuration>
+    			<executions>
+		            <execution>
+		                <id>bundle-manifest</id>
+		                <phase>process-classes</phase>
+		                <goals>
+		                    <goal>manifest</goal>
+		                </goals>
+		            </execution>
+		        </executions>
+    		</plugin>
+    		
+    		<plugin>
+    			<artifactId>maven-jar-plugin</artifactId>
+		        <configuration>
+		            <archive>
+		                <manifestFile>META-INF/MANIFEST.MF</manifestFile>
+		            </archive>
+		        </configuration>
+    		</plugin>
+    	</plugins>
+    	
+    	<pluginManagement>
+    		<plugins>
+    			<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+	                <artifactId>lifecycle-mapping</artifactId>
+	                <version>1.0.0</version>
+	                <configuration>
+	                    <lifecycleMappingMetadata>
+	                        <pluginExecutions>
+	                            <pluginExecution>
+	                                <pluginExecutionFilter>
+	                                    <groupId>org.apache.felix</groupId>
+	                                    <artifactId>maven-bundle-plugin</artifactId>
+	                                    <versionRange>[1.0.0,)</versionRange>
+	                                    <goals>
+	                                        <goal>manifest</goal>
+	                                    </goals>
+	                                </pluginExecutionFilter>
+	                                <action>
+	                                    <ignore></ignore>
+	                                </action>
+	                            </pluginExecution>
+	                        </pluginExecutions>
+	                    </lifecycleMappingMetadata>
+	                </configuration>
+    			</plugin>
+    		</plugins>    	
+    	</pluginManagement>
+    </build> -->
+    
+</project>

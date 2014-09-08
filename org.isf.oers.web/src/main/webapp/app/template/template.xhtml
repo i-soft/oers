@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"> 
+
+<h:head>
+
+</h:head> 
+<h:body>
+	<f:facet name="last">
+		<h:outputStylesheet library="common" name="css/common-style.css" />
+	</f:facet>
+
+	<div id="app-page">
+		<h:form id="app-main-messaging-form">
+			<p:growl id="main-messages" showDetail="true" sticky="true" />
+		</h:form>
+		<div id="app-header">
+			<ui:insert name="app-header">
+				<ui:include src="/app/template/common/header.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="app-left-menu">
+			<ui:insert name="app-left-menu">
+				<ui:include src="/app/template/common/left_menu.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="app-content">
+			<ui:insert name="app-content">
+				<ui:include src="/app/template/common/content.xhtml" />
+			</ui:insert>
+		</div>
+		<div id ="app-footer">
+			
+		</div>
+		
+	</div>
+</h:body>
+</html>
