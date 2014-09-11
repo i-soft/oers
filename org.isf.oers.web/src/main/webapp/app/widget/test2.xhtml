@@ -3,13 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
 
 </h:head>
 <h:body>
 	<ui:composition>
-		TEST 2
+		<p:tree id="test-tree" value="#{treeTest1.root}" var="node"  dynamic="true" cache="false">
+			<p:ajax event="expand" listener="#{treeTest1.onNodeExpand}" />
+			<p:treeNode>
+				<h:outputText value="#{node}" />
+			</p:treeNode>
+		</p:tree>
 	</ui:composition>
 </h:body>
       

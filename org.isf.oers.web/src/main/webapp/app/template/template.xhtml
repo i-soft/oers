@@ -13,12 +13,6 @@
 	<f:facet name="last">
 		<h:outputStylesheet library="common" name="css/common-style.css" />
 	</f:facet>
-
-	<p:ajaxStatus onstart="loadingDialog.show();" onsuccess="loadingDialog.hide();" />
-	
-	<p:dialog modal="true" widgetVar="loadingDialog" header="Loading..." draggable="false" closable="false"> 
-		<p:graphicImage library="common" value="img/loading.gif" />
-	</p:dialog>
 	
 	<div id="app-page">
 		<h:form id="app-main-messaging-form">
