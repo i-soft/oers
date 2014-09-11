@@ -1,6 +1,8 @@
 package org.isf.oers.web.reports;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +19,11 @@ import org.isf.commons.data.Header;
 import org.isf.commons.data.Tuple;
 import org.primefaces.component.columngroup.ColumnGroup;
 import org.primefaces.component.row.Row;
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
+import org.primefaces.model.chart.ChartSeries;
+import org.primefaces.model.chart.DateAxis;
+import org.primefaces.model.chart.LineChartModel;
 
 import com.el.oers.report.StockALQOverviewBuilderBean;
 
@@ -34,7 +41,8 @@ public class StockALQOverview implements Serializable {
 	private Header header;
 	private ColumnGroup columnGroup;
 	
-//	private List<Tuple> list;
+	private static final String[][] ALQ_OVERVIEW_DEFS = {{"DE", "LZM", "ALQ DE LZM"},{"DE", "KZM", "ALQ DE KZM"},{"DK", "%", "ALQ DK"},{"PL", "%", "ALQ PL"}};
+	private LineChartModel alqOverviewChart;
 	
 	@Inject
 	private StockALQOverviewBuilderBean builder;
@@ -62,10 +70,62 @@ public class StockALQOverview implements Serializable {
 		}
 		
 		setColumnGroup(createColumnGroup());
-//		setData(builder.build(dates));
+		
+		createCharts();
 	}
 	
+	protected void createCharts() throws Exception {
+		alqOverviewChart = createALQOverviewModel();
+		
+	}
+	
+	protected LineChartModel createALQOverviewModel() throws Exception {
+		LineChartModel model = new LineChartModel();
+		model.setTitle("Tägliches ALQ Reporting nach Länder");
+		model.setLegendPosition("e");
+		Axis yaxis = model.getAxis(AxisType.Y);
+		yaxis.setLabel("Auslastung in %");
+		yaxis.setMin(50.0d);
+		yaxis.setMax(100.0d);
+		
+		Date[] dates = getDates();
+		
+		DateAxis xaxis = new DateAxis();
+		xaxis.setMax(DateUtil.toString("yyyy-MM-dd", dates[dates.length-1]));
+		xaxis.setTickFormat("%#d.%#m.");
+		
+		model.getAxes().put(AxisType.X, xaxis);
+		
+		for (String[] vals : ALQ_OVERVIEW_DEFS) {
+			List<Tuple> l = builder.build(vals[0], vals[1], dates);
+			ChartSeries series = new ChartSeries();
+			series.setLabel(vals[2]);
+			
+			for (int i=0;i<dates.length;i++) {
+				Tuple t = l.get(0);
+				Double d = (Double)t.getData(i+1);
+				if (d.doubleValue() == 0.0) continue;
+				series.set(DateUtil.toString("yyyy-MM-dd", dates[i]), d);
+			}
+			
+			model.addSeries(series);
+		}
+		
+		return model;
+	}
+	
+	public LineChartModel getALQOverviewChart() { return alqOverviewChart; }
+	
 	public Header getHeader() { return header; }
+	
+	public String[] getColumnNames() {
+		Date[] dates = getDates();
+		String[] ret = new String[dates.length+1];
+		ret[0] = "Type";
+		for (int i=0;i<dates.length;i++)
+			ret[i+1] = DateUtil.toString("dd.MM.", dates[i]);
+		return ret;		
+	}
 	
 	public ColumnGroup getColumnGroup() { return columnGroup; }
 	public void setColumnGroup(ColumnGroup columnGroup) { this.columnGroup = columnGroup; }
@@ -83,7 +143,7 @@ public class StockALQOverview implements Serializable {
 				col.setHeaderText(c.getDisplayName());
 				if (!c.hasColumns())  {
 					col.setRowspan(cnt-i+1);
-					col.setStyle("min-width: 200px;");
+					col.setStyle("min-width: 80px;");
 				} else col.setColspan(c.columnSize());
 				
 				row.getChildren().add(col);
@@ -97,11 +157,38 @@ public class StockALQOverview implements Serializable {
 	
 	public Date[] getDates() { return DateUtil.getLastWeeks(VIEWED_WEEKS-1); }
 	
-//	public List<Tuple> getData() { return list; }
-//	public void setData(List<Tuple> data) { this.list = data; }
-	
-	public List<Tuple> getData(String country, String devision) throws Exception {
-		return builder.build(country, devision, getDates());
+		
+	public List<DisplayTuple> getData(String country, String devision) throws Exception {
+		List<Tuple> l = builder.build(country, devision, getDates());	
+		List<DisplayTuple> ret = new ArrayList<DisplayTuple>();
+		
+		for (int i=0;i<l.size();i++) {
+			Tuple t = l.get(i);
+			DisplayTuple dt = new DisplayTuple();
+			String bstyle = (i%3 == 0) ? "font-weight: bold; " : "";
+			for (int j=0;j<t.count();j++) {
+				String lstyle = bstyle;
+				if (j==0 && i%3 > 0) {
+					dt.addData(t.getData(j));
+					lstyle += "width: 100px; text-align: right; ";
+				} else if (j==0) {
+					dt.addData(t.getData(j));
+					lstyle += "width: 100px; ";
+				} else if (i<3) {
+					DecimalFormat df = new DecimalFormat("#,##0.0");
+					dt.addData(df.format((Double)t.getData(j))+"%");
+					lstyle += "text-align: right; ";
+				} else {
+					DecimalFormat df = new DecimalFormat("#,##0");
+					dt.addData(df.format((Double)t.getData(j)));
+					lstyle += "text-align: right; ";
+				}
+				dt.setStyle(j, lstyle);
+			}
+			ret.add(dt);
+		}
+		
+		return ret;
 	}
 	
 }

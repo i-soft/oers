@@ -142,8 +142,8 @@ public class StockALQOverviewBuilderBean implements Serializable {
 						Tuple st = l.get(0);
 						Tuple t = new Tuple();
 						if (i == 0) t.addData(hier);
-						else if (i == 1) t.addData("davon Truck");
-						else t.addData("davon Trailer");
+						else if (i == 1) t.addData("Truck");
+						else t.addData("Trailer");
 						
 						for (int j=2;j<st.count();j++)
 							t.addData(st.getData(j));

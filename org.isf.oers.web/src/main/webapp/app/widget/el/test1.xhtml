@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+	<ui:composition>
+			
+			<p:tabView>
+				<p:tab title="Overview"> 
+					<p:chart type="line" model="#{stockALQOverview.ALQOverviewChart}" style="width: 1000px;" />
+				</p:tab>
+		 		<p:tab title="GER - Total">
+					<p:dataTable id="stock-alq-datatable-ger-total" var="dat" value="#{stockALQOverview.getData('DE', '%')}" style="font-size: 8pt; table-layout: auto; ">
+						<p:column headerText="#{stockALQOverview.columnNames[0]}" style="#{dat.getStyle(0)}">
+							<h:outputText value="#{dat.getData(0)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[1]}" style="#{dat.getStyle(1)}">
+							<h:outputText value="#{dat.getData(1)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[2]}" style="#{dat.getStyle(2)}">
+							<h:outputText value="#{dat.getData(2)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[3]}" style="#{dat.getStyle(3)}">
+							<h:outputText value="#{dat.getData(3)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[4]}" style="#{dat.getStyle(4)}">
+							<h:outputText value="#{dat.getData(4)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[5]}" style="#{dat.getStyle(5)}">
+							<h:outputText value="#{dat.getData(5)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[6]}" style="#{dat.getStyle(6)}">
+							<h:outputText value="#{dat.getData(6)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[7]}" style="#{dat.getStyle(7)}">
+							<h:outputText value="#{dat.getData(7)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[8]}" style="#{dat.getStyle(8)}">
+							<h:outputText value="#{dat.getData(8)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[9]}" style="#{dat.getStyle(9)}">
+							<h:outputText value="#{dat.getData(9)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[10]}" style="#{dat.getStyle(10)}">
+							<h:outputText value="#{dat.getData(10)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[11]}" style="#{dat.getStyle(11)}">
+							<h:outputText value="#{dat.getData(11)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[12]}" style="#{dat.getStyle(12)}">
+							<h:outputText value="#{dat.getData(12)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[13]}" style="#{dat.getStyle(13)}">
+							<h:outputText value="#{dat.getData(13)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[14]}" style="#{dat.getStyle(14)}">
+							<h:outputText value="#{dat.getData(14)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[15]}" style="#{dat.getStyle(15)}">
+							<h:outputText value="#{dat.getData(15)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[16]}" style="#{dat.getStyle(16)}">
+							<h:outputText value="#{dat.getData(16)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[17]}" style="#{dat.getStyle(17)}">
+							<h:outputText value="#{dat.getData(17)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[18]}" style="#{dat.getStyle(18)}">
+							<h:outputText value="#{dat.getData(18)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[19]}" style="#{dat.getStyle(19)}">
+							<h:outputText value="#{dat.getData(19)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[20]}" style="#{dat.getStyle(20)}">
+							<h:outputText value="#{dat.getData(20)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[21]}" style="#{dat.getStyle(21)}">
+							<h:outputText value="#{dat.getData(21)}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="GER - LTR">
+					<p:dataTable id="stock-alq-datatable-ger-ltr" var="dat" value="#{stockALQOverview.getData('DE', 'LZM')}" style="font-size: 8pt; table-layout: auto; ">
+						<p:column headerText="#{stockALQOverview.columnNames[0]}" style="#{dat.getStyle(0)}">
+							<h:outputText value="#{dat.getData(0)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[1]}" style="#{dat.getStyle(1)}">
+							<h:outputText value="#{dat.getData(1)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[2]}" style="#{dat.getStyle(2)}">
+							<h:outputText value="#{dat.getData(2)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[3]}" style="#{dat.getStyle(3)}">
+							<h:outputText value="#{dat.getData(3)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[4]}" style="#{dat.getStyle(4)}">
+							<h:outputText value="#{dat.getData(4)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[5]}" style="#{dat.getStyle(5)}">
+							<h:outputText value="#{dat.getData(5)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[6]}" style="#{dat.getStyle(6)}">
+							<h:outputText value="#{dat.getData(6)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[7]}" style="#{dat.getStyle(7)}">
+							<h:outputText value="#{dat.getData(7)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[8]}" style="#{dat.getStyle(8)}">
+							<h:outputText value="#{dat.getData(8)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[9]}" style="#{dat.getStyle(9)}">
+							<h:outputText value="#{dat.getData(9)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[10]}" style="#{dat.getStyle(10)}">
+							<h:outputText value="#{dat.getData(10)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[11]}" style="#{dat.getStyle(11)}">
+							<h:outputText value="#{dat.getData(11)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[12]}" style="#{dat.getStyle(12)}">
+							<h:outputText value="#{dat.getData(12)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[13]}" style="#{dat.getStyle(13)}">
+							<h:outputText value="#{dat.getData(13)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[14]}" style="#{dat.getStyle(14)}">
+							<h:outputText value="#{dat.getData(14)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[15]}" style="#{dat.getStyle(15)}">
+							<h:outputText value="#{dat.getData(15)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[16]}" style="#{dat.getStyle(16)}">
+							<h:outputText value="#{dat.getData(16)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[17]}" style="#{dat.getStyle(17)}">
+							<h:outputText value="#{dat.getData(17)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[18]}" style="#{dat.getStyle(18)}">
+							<h:outputText value="#{dat.getData(18)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[19]}" style="#{dat.getStyle(19)}">
+							<h:outputText value="#{dat.getData(19)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[20]}" style="#{dat.getStyle(20)}">
+							<h:outputText value="#{dat.getData(20)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[21]}" style="#{dat.getStyle(21)}">
+							<h:outputText value="#{dat.getData(21)}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="GER - STR">
+					<p:dataTable id="stock-alq-datatable-ger-str" var="dat" value="#{stockALQOverview.getData('DE', 'KZM')}" style="font-size: 8pt; table-layout: auto; ">
+						<p:column headerText="#{stockALQOverview.columnNames[0]}" style="#{dat.getStyle(0)}">
+							<h:outputText value="#{dat.getData(0)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[1]}" style="#{dat.getStyle(1)}">
+							<h:outputText value="#{dat.getData(1)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[2]}" style="#{dat.getStyle(2)}">
+							<h:outputText value="#{dat.getData(2)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[3]}" style="#{dat.getStyle(3)}">
+							<h:outputText value="#{dat.getData(3)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[4]}" style="#{dat.getStyle(4)}">
+							<h:outputText value="#{dat.getData(4)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[5]}" style="#{dat.getStyle(5)}">
+							<h:outputText value="#{dat.getData(5)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[6]}" style="#{dat.getStyle(6)}">
+							<h:outputText value="#{dat.getData(6)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[7]}" style="#{dat.getStyle(7)}">
+							<h:outputText value="#{dat.getData(7)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[8]}" style="#{dat.getStyle(8)}">
+							<h:outputText value="#{dat.getData(8)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[9]}" style="#{dat.getStyle(9)}">
+							<h:outputText value="#{dat.getData(9)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[10]}" style="#{dat.getStyle(10)}">
+							<h:outputText value="#{dat.getData(10)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[11]}" style="#{dat.getStyle(11)}">
+							<h:outputText value="#{dat.getData(11)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[12]}" style="#{dat.getStyle(12)}">
+							<h:outputText value="#{dat.getData(12)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[13]}" style="#{dat.getStyle(13)}">
+							<h:outputText value="#{dat.getData(13)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[14]}" style="#{dat.getStyle(14)}">
+							<h:outputText value="#{dat.getData(14)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[15]}" style="#{dat.getStyle(15)}">
+							<h:outputText value="#{dat.getData(15)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[16]}" style="#{dat.getStyle(16)}">
+							<h:outputText value="#{dat.getData(16)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[17]}" style="#{dat.getStyle(17)}">
+							<h:outputText value="#{dat.getData(17)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[18]}" style="#{dat.getStyle(18)}">
+							<h:outputText value="#{dat.getData(18)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[19]}" style="#{dat.getStyle(19)}">
+							<h:outputText value="#{dat.getData(19)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[20]}" style="#{dat.getStyle(20)}">
+							<h:outputText value="#{dat.getData(20)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[21]}" style="#{dat.getStyle(21)}">
+							<h:outputText value="#{dat.getData(21)}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="DK - Total">
+					<p:dataTable id="stock-alq-datatable-dk-total" var="dat" value="#{stockALQOverview.getData('DK', '%')}" style="font-size: 8pt; table-layout: auto; ">
+						<p:column headerText="#{stockALQOverview.columnNames[0]}" style="#{dat.getStyle(0)}">
+							<h:outputText value="#{dat.getData(0)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[1]}" style="#{dat.getStyle(1)}">
+							<h:outputText value="#{dat.getData(1)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[2]}" style="#{dat.getStyle(2)}">
+							<h:outputText value="#{dat.getData(2)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[3]}" style="#{dat.getStyle(3)}">
+							<h:outputText value="#{dat.getData(3)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[4]}" style="#{dat.getStyle(4)}">
+							<h:outputText value="#{dat.getData(4)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[5]}" style="#{dat.getStyle(5)}">
+							<h:outputText value="#{dat.getData(5)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[6]}" style="#{dat.getStyle(6)}">
+							<h:outputText value="#{dat.getData(6)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[7]}" style="#{dat.getStyle(7)}">
+							<h:outputText value="#{dat.getData(7)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[8]}" style="#{dat.getStyle(8)}">
+							<h:outputText value="#{dat.getData(8)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[9]}" style="#{dat.getStyle(9)}">
+							<h:outputText value="#{dat.getData(9)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[10]}" style="#{dat.getStyle(10)}">
+							<h:outputText value="#{dat.getData(10)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[11]}" style="#{dat.getStyle(11)}">
+							<h:outputText value="#{dat.getData(11)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[12]}" style="#{dat.getStyle(12)}">
+							<h:outputText value="#{dat.getData(12)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[13]}" style="#{dat.getStyle(13)}">
+							<h:outputText value="#{dat.getData(13)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[14]}" style="#{dat.getStyle(14)}">
+							<h:outputText value="#{dat.getData(14)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[15]}" style="#{dat.getStyle(15)}">
+							<h:outputText value="#{dat.getData(15)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[16]}" style="#{dat.getStyle(16)}">
+							<h:outputText value="#{dat.getData(16)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[17]}" style="#{dat.getStyle(17)}">
+							<h:outputText value="#{dat.getData(17)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[18]}" style="#{dat.getStyle(18)}">
+							<h:outputText value="#{dat.getData(18)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[19]}" style="#{dat.getStyle(19)}">
+							<h:outputText value="#{dat.getData(19)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[20]}" style="#{dat.getStyle(20)}">
+							<h:outputText value="#{dat.getData(20)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[21]}" style="#{dat.getStyle(21)}">
+							<h:outputText value="#{dat.getData(21)}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+				<p:tab title="PL - Total">
+					<p:dataTable id="stock-alq-datatable-pl-total" var="dat" value="#{stockALQOverview.getData('PL', '%')}" style="font-size: 8pt; table-layout: auto; ">
+						<p:column headerText="#{stockALQOverview.columnNames[0]}" style="#{dat.getStyle(0)}">
+							<h:outputText value="#{dat.getData(0)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[1]}" style="#{dat.getStyle(1)}">
+							<h:outputText value="#{dat.getData(1)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[2]}" style="#{dat.getStyle(2)}">
+							<h:outputText value="#{dat.getData(2)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[3]}" style="#{dat.getStyle(3)}">
+							<h:outputText value="#{dat.getData(3)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[4]}" style="#{dat.getStyle(4)}">
+							<h:outputText value="#{dat.getData(4)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[5]}" style="#{dat.getStyle(5)}">
+							<h:outputText value="#{dat.getData(5)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[6]}" style="#{dat.getStyle(6)}">
+							<h:outputText value="#{dat.getData(6)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[7]}" style="#{dat.getStyle(7)}">
+							<h:outputText value="#{dat.getData(7)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[8]}" style="#{dat.getStyle(8)}">
+							<h:outputText value="#{dat.getData(8)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[9]}" style="#{dat.getStyle(9)}">
+							<h:outputText value="#{dat.getData(9)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[10]}" style="#{dat.getStyle(10)}">
+							<h:outputText value="#{dat.getData(10)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[11]}" style="#{dat.getStyle(11)}">
+							<h:outputText value="#{dat.getData(11)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[12]}" style="#{dat.getStyle(12)}">
+							<h:outputText value="#{dat.getData(12)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[13]}" style="#{dat.getStyle(13)}">
+							<h:outputText value="#{dat.getData(13)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[14]}" style="#{dat.getStyle(14)}">
+							<h:outputText value="#{dat.getData(14)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[15]}" style="#{dat.getStyle(15)}">
+							<h:outputText value="#{dat.getData(15)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[16]}" style="#{dat.getStyle(16)}">
+							<h:outputText value="#{dat.getData(16)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[17]}" style="#{dat.getStyle(17)}">
+							<h:outputText value="#{dat.getData(17)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[18]}" style="#{dat.getStyle(18)}">
+							<h:outputText value="#{dat.getData(18)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[19]}" style="#{dat.getStyle(19)}">
+							<h:outputText value="#{dat.getData(19)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[20]}" style="#{dat.getStyle(20)}">
+							<h:outputText value="#{dat.getData(20)}" />
+						</p:column>
+						<p:column headerText="#{stockALQOverview.columnNames[21]}" style="#{dat.getStyle(21)}">
+							<h:outputText value="#{dat.getData(21)}" />
+						</p:column>
+					</p:dataTable>
+				</p:tab>
+			</p:tabView>
+		
+	</ui:composition>
+</h:body>
+      
+</html>
