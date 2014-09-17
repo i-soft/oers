@@ -12,7 +12,8 @@ import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 @Named
-@RequestScoped
+//@RequestScoped
+@SessionScoped
 public class TreeTest1 implements Serializable {
 
 	/**
@@ -42,12 +43,14 @@ public class TreeTest1 implements Serializable {
 	
 	public void onNodeExpand(NodeExpandEvent event) {
 		TreeNode node = event.getTreeNode();
+		setSelected(node);
 		System.out.println("Expand triggered for "+node);
 		if (node.getChildCount() == 1 && node.getChildren().get(0).toString().equals("DUMMY")) {
 			node.getChildren().remove(0);
 			TreeNode dynaChild = new DefaultTreeNode("DynaChild-1", node);
 			dynaChild = new DefaultTreeNode("DynaChild-2", node);
-			dynaChild = new DefaultTreeNode("DynaChild-2", node);
+			dynaChild = new DefaultTreeNode("DynaChild-3", node);
+			TreeNode dummy = new DefaultTreeNode("DUMMY", dynaChild);
 		}
 	}
 	

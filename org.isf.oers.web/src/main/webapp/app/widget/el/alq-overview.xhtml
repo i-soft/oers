@@ -10,7 +10,7 @@
 </h:head>
 <h:body>
 	<ui:composition>
-			
+		<p:outputPanel deferred="true" deferredMode="visible">
 			<p:tabView>
 				<p:tab title="Overview"> 
 					<p:chart type="line" model="#{stockALQOverview.ALQOverviewChart}" style="width: 1000px;" />
@@ -366,7 +366,7 @@
 					</p:dataTable>
 				</p:tab>
 			</p:tabView>
-		
+		</p:outputPanel>
 	</ui:composition>
 </h:body>
       

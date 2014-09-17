@@ -10,12 +10,15 @@
 </h:head>
 <h:body>
 	<ui:composition>
-		<p:tree id="test-tree" value="#{treeTest1.root}" var="node"  dynamic="true" cache="false">
-			<p:ajax event="expand" listener="#{treeTest1.onNodeExpand}" />
-			<p:treeNode>
-				<h:outputText value="#{node}" />
-			</p:treeNode>
-		</p:tree>
+		<h:form>
+			<h:outputText value="#{treeTest1.selected}" />
+			<p:tree id="test-tree" value="#{treeTest1.root}" var="node"  dynamic="true" cache="false">
+				<p:ajax event="expand" update="@this" listener="#{treeTest1.onNodeExpand}" />
+				<p:treeNode>
+					<h:outputText value="#{node}" />
+				</p:treeNode>
+			</p:tree>
+		</h:form>
 	</ui:composition>
 </h:body>
       

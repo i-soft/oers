@@ -5,6 +5,10 @@
     <param-value>Development</param-value>
   </context-param>
   <context-param>
+    <param-name>primefaces.THEME</param-name>
+    <param-value>smoothness</param-value>
+  </context-param>
+  <context-param>
   	<param-name>org.isf.oers.app.configuration</param-name>
   	<param-value>/opt/jboss/jboss-7.1.1-oers/standalone/data/oers/configuration</param-value>
   </context-param>

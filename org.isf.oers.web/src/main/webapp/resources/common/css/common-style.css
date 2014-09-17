@@ -5,7 +5,7 @@
 	right:0px;
 	min-width: 750px;
 	min-height: 400px;
-	background-color: gray;
+/*	background-color: gray; */
 }
 
 #app-header {
@@ -45,7 +45,7 @@
 }
 
 #app-left-menu {
-	background-color: green;
+/*	background-color: green;*/
 	float: left;
 	margin-top: 5px;
 	margin-left: 5px;
@@ -58,7 +58,7 @@
 }
 
 #app-content {
-	background-color: yellow;
+/*	background-color: yellow;*/
 	min-height: 50px;
 	margin-top: 5px;
 	margin-left: 260px;
