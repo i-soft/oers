@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+#app-top-menu {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: linear-gradient(to bottom, #ffffff 0%, #d6d8db 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: -moz-use-text-color #acb1b6 #acb1b6;
+    border-image: none;
+    border-right: 1px solid #acb1b6;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    font-family: "HelveticaNeueLt57Cd",Arial;
+    height: 32px;
+    position: relative;
+    z-index: 20;
+}
+.lt-ie9 #app-top-menu {
+}
+#app-top-menu .wrapper {
+    height: 100%;
+    margin: 0 auto;
+}
+#app-top-menu ul {
+    border-left: 1px solid #acb1b6;
+    display: block;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 0 0 15px;
+    padding: 0;
+}
+#app-top-menu li {
+    border-right: 1px solid #fff;
+    display: block;
+    float: left;
+    height: 100%;
+    position: relative;
+}
+#app-top-menu li:first-child {
+    border-left: 1px solid #fff;
+}
+.no-generatedcontent #app-top-menu li {
+    border-left: medium none !important;
+    border-right: 1px solid #acb1b6;
+}
+#app-top-menu li.flyout-open, #app-top-menu li.active.flyout-open {
+    background: none repeat scroll 0 0 #fff;
+}
+#app-top-menu li:hover, #app-top-menu li.active, #app-top-menu li.flyout-open:hover {
+    background-color: #d6d8db;
+    padding-bottom: 0;
+}
+#app-top-menu li:active {
+    background: linear-gradient(to bottom, #acb1b6 0%, #d6d8db 40%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.lt-ie9 #app-top-menu li:active {
+}
+#app-top-menu li:before, #app-top-menu li .ie-before {
+/*    background: url("http://www.truck.man.eu/global/media/resources/img/sprites/general.png") no-repeat scroll 0 -16px rgba(0, 0, 0, 0);*/
+    content: "";
+    display: block;
+    height: 6px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 9px;
+}
+#app-top-menu li.flyout-open:before, #app-top-menu li.flyout-open .ie-before {
+    /*background: url("http://www.truck.man.eu/global/media/resources/img/sprites/general.png") no-repeat scroll 0 -88px rgba(0, 0, 0, 0);*/
+}
+#app-top-menu li:after {
+    background: none repeat scroll 0 0 #acb1b6;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+}
+#app-top-menu li a {
+    color: #303c49;
+    display: block;
+    font-size: 15px;
+    line-height: 18px;
+    outline: medium none;
+    padding: 7px 20px 7px 20px;
+    position: relative;
+    text-decoration: none;
+}

@@ -1,0 +1,127 @@
+html, body {
+	margin: 0px;
+}
+
+.el-logo-background {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	/*background-color: red;*/
+	background: url("/oers-web/javax.faces.resource/img/background.jpeg.xhtml?ln=el") no-repeat;
+	background-size: auto 100%;
+	background-position: center;
+	background-color: #303C49;
+}
+
+#app-page {
+	position: absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	min-width: 750px;
+	min-height: 400px;
+/*	background-color: gray; */
+}
+
+#app-header {
+	background: linear-gradient(to bottom, #737b84 0%, #3f4a56 35%, #303c49 36%, #303c49 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-bottom: 6px solid #d00039;
+    clear: both;
+    height: 90px;
+    position: relative;
+    z-index: 25;
+}
+
+#app-header img {
+	margin-left: 15px;
+	margin-top: 15px;
+	width: auto;
+	z-index: 1;
+}
+
+#app-header a {
+	position:absolute;
+	margin-top:40px;
+	margin-right:5px;
+	right:10px;
+	text-decoration: none;
+	font-size: 1.8em;
+	font-weight: bold;
+	color: #AFAFAF;
+}
+
+#app-header a:VISITED {
+	text-decoration: none;
+	font-weight: bold;
+	color: #AFAFAF;
+}
+
+#app-header a:HOVER {
+	text-decoration: none;
+	font-weight: bold;
+	color: #AFAFAF;
+}
+
+#app-header .claim {
+    bottom: 11px;
+    color: #acb1b6;
+    font-family: "HelveticaNeueLt77BoldCd",Arial;
+    font-size: 20px;
+    left: 132px;
+    line-height: 25px;
+    max-width: 235px;
+    position: absolute;
+}
+
+#app-left-menu {
+/*	background-color: green;*/
+	float: left;
+	margin-top: 5px;
+	margin-left: 15px;
+	width: 250px;
+	min-height: 20px;
+}
+
+#app-left-menu .ui-menu {
+	width: 237px;
+}
+
+#app-shadow-box {
+	/*background: url("/oers-web/javax.faces.resource/img/bg_stage.png.xhtml?ln=el") repeat-x scroll left top #fff;*/
+	height: 10px;
+	margin-top: -3px;
+}
+
+#app-content {
+/*	background-color: yellow;*/
+	min-height: 50px;
+	margin-top: 5px;
+	margin-left: 270px;
+	margin-right: 15px;
+}
+
+#app-footer {
+	background-color: #1F2126;
+	color: white;
+	position:fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	min-height: 10px;
+	margin-top: 5px;
+	z-index: 90;
+}
+
+.ui-dashboard-column {
+	min-width: 200px;
+}
+
+.ui-dashboard-column .ui-panel {
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.ui-widget-header {
+	background: linear-gradient(to bottom, #ffffff 0%, #d6d8db 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+	/*background: linear-gradient(to bottom, #ffffff 0%, #AFAFAF 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+}
