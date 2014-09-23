@@ -130,4 +130,12 @@ public class WebSession implements Serializable {
 		FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "/login.xhtml");
 	}
 	
+	public List<MenuDef> listTopMenus() {
+		return app.getConfiguration().getMainMenu().getItems();
+	}
+	
+	public String invokeMenuDef(MenuDef menuDef) {
+		if (menuDef.hasProperty("outcome")) return menuDef.getProperty("outcome");
+		else return "";
+	}
 }

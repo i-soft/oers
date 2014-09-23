@@ -53,6 +53,7 @@ public class AppConfigurationReader {
 		if (doc.hasAttribute(n, "roles")) 
 			for (String role : Util.splitLine(doc.getAttribute(n, "roles"), ",")) 
 				ret.addRole(role);
+		ret.setProperties(generateProperties(n));
 		
 		NodeList nl = n.getChildNodes();
 		for (int i=0;i<nl.getLength();i++) {
@@ -71,6 +72,7 @@ public class AppConfigurationReader {
 			for (String role : Util.splitLine(doc.getAttribute(n, "roles"), ",")) 
 				ret.addRole(role);
 		if (doc.hasAttribute(n, "command")) ret.setCommand(doc.getAttribute(n, "command"));
+		ret.setProperties(generateProperties(n));
 		
 		return ret;
 	}

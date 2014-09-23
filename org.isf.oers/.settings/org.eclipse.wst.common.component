@@ -74,5 +74,47 @@
         <dependent-module archiveName="guava.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/guava/guava/14.0.1/guava-14.0.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="mdx.jar" deploy-path="/lib" handle="module:/resource/org.isf.mdx/org.isf.mdx">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pivot4j-core.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/pivot4j/pivot4j-core/0.9/pivot4j-core-0.9.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-pool.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-pool/commons-pool/1.6/commons-pool-1.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-configuration.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jflex.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/de/jflex/jflex/1.4.3/jflex-1.4.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="avalon-framework-api.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/avalon-framework/avalon-framework-api/4.2.0/avalon-framework-api-4.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="avalon-framework-impl.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/avalon-framework/avalon-framework-impl/4.2.0/avalon-framework-impl-4.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="freemarker.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/freemarker/freemarker/2.3.20/freemarker-2.3.20.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-lang.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/commons-lang/commons-lang/2.6/commons-lang-2.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="olap4j-xmla.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/olap4j/olap4j-xmla/1.2.0/olap4j-xmla-1.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="olap4j.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/olap4j/olap4j/1.2.0/olap4j-1.2.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javacc.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/net/java/dev/javacc/javacc/5.0/javacc-5.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>

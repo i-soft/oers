@@ -1,4 +1,4 @@
-package org.isf.oers.web.reports;
+package org.isf.oers.web.report;
 
 import java.io.Serializable;
 

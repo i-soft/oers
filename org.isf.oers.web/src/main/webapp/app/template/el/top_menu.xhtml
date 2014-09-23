@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:body>
+		<ui:composition>
+			<h:form id="top-menu-form">
+				<div class="wrapper">
+					<ul>
+						<ui:repeat var="item" value="#{webSession.listTopMenus()}">
+							<li>
+								<h:link outcome="#{webSession.invokeMenuDef(item)}" value="#{item.name}" />
+							</li>
+						</ui:repeat>
+						<li>
+							<p:commandLink id="top-menu-user-menu" >
+								<h:outputText value="#{webSession.user.username}" />
+							</p:commandLink>
+							<p:menu overlay="true" trigger="top-menu-user-menu" my="left top" at="left bottom">
+								<p:menuitem value="#{uimsg.logout}" actionListener="#{webSession.logout()}" />
+							</p:menu>
+						</li>
+					</ul>
+				</div>
+			</h:form>
+		</ui:composition>
+	</h:body>
+</html>

@@ -3,13 +3,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
 
 </h:head>
 <h:body>
 	<ui:composition>
-		TEST 3
+		<p:outputPanel deferred="true" deferredMode="visible">
+			<p:dataTable var="item" value="#{mdxReportHandler.data}" style="font-size: 8pt; ">
+				<p:column headerText="#{mdxReportHandler.column(0).displayName}" styleClass="ui-state-default" width="auto">
+					<h:commandLink value="#{item.getData(0)}" action="#{mdxReportHandler.expand(item.getData(0))}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(1).displayName}">
+					<h:outputText value="#{item.getData(1)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(2).displayName}">
+					<h:outputText value="#{item.getData(2)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(3).displayName}">
+					<h:outputText value="#{item.getData(3)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(4).displayName}">
+					<h:outputText value="#{item.getData(4)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(5).displayName}">
+					<h:outputText value="#{item.getData(5)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(6).displayName}">
+					<h:outputText value="#{item.getData(6)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(7).displayName}">
+					<h:outputText value="#{item.getData(7)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(8).displayName}">
+					<h:outputText value="#{item.getData(8)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(9).displayName}">
+					<h:outputText value="#{item.getData(9)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(10).displayName}">
+					<h:outputText value="#{item.getData(10)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(11).displayName}">
+					<h:outputText value="#{item.getData(11)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(12).displayName}">
+					<h:outputText value="#{item.getData(12)}" />
+				</p:column>
+				<p:column headerText="#{mdxReportHandler.column(13).displayName}">
+					<h:outputText value="#{item.getData(13)}" />
+				</p:column>
+			</p:dataTable>
+		</p:outputPanel>
 	</ui:composition>
 </h:body>
       

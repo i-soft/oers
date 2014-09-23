@@ -28,6 +28,11 @@
   		<artifactId>jboss-jsf-api_2.1_spec</artifactId>
   		<scope>provided</scope>
   	</dependency>
+  	<dependency>
+  		<groupId>org.isf</groupId>
+  		<artifactId>mdx</artifactId>
+  		<version>1.0.0</version>
+  	</dependency>
   </dependencies>
   
   <build>

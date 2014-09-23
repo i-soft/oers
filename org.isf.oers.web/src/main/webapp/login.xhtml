@@ -5,27 +5,23 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.org/ui"> 
 
-<h:head>
-	<title>#{uimsg.welcome}</title>
-	
-	<h:outputStylesheet library="el" name="css/el-style.css" />
-</h:head> 
-<h:body>
-	<div class="el-logo-background">
-		<h:form>
-			<p:dialog header="#{uimsg.welcome}" widgetVar="dlg" resizable="false" closable="false" visible="true" draggable="false">
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel for="username" value="#{uimsg.username}" />
-					<p:inputText id="username" required="true" label="username" value="#{loginBean.username}" />
-					<h:outputLabel for="password" value="#{uimsg.password}" />
-					<p:password id="password" required="true" label="password" value="#{loginBean.password}" />
-					
-					<f:facet name="footer">
-						<p:commandButton value="#{uimsg.login}" action="#{loginBean.login()}" />
-					</f:facet>
-				</h:panelGrid>
-			</p:dialog>
-		</h:form>
-	</div>
-</h:body> 
+	<ui:composition template="/app/template/el/template.xhtml">
+		<ui:define name="app-top-menu"></ui:define>
+		<ui:define name="app-content">
+			<h:form>
+				<p:dialog header="#{uimsg.welcome}" widgetVar="dlg" resizable="false" closable="false" visible="true" draggable="false">
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="username" value="#{uimsg.username}" />
+						<p:inputText id="username" required="true" label="username" value="#{loginBean.username}" />
+						<h:outputLabel for="password" value="#{uimsg.password}" />
+						<p:password id="password" required="true" label="password" value="#{loginBean.password}" />
+						
+						<f:facet name="footer">
+							<p:commandButton value="#{uimsg.login}" action="#{loginBean.login()}" />
+						</f:facet>
+					</h:panelGrid>
+				</p:dialog>
+			</h:form>
+		</ui:define>
+	</ui:composition>
 </html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:composition> 
+		<p:panel header="#{webReportingHandler.selectedReportDefinition.name}" style="min-height: 500px;">
+			<p:outputPanel deferred="true" deferredMode="visible">
+				<p:dataTable var="item" value="#{webReportingHandler.data}" style="font-size: 8pt;">
+					<p:column headerText="#{webReportingHandler.column(0).displayName}" styleClass="ui-state-default" width="auto">
+						<h:commandLink value="#{item.getData(0)}" action="#{webReportingHandler.expand(item.getData(0))}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(1).displayName}">
+						<h:outputText value="#{item.getData(1)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(2).displayName}">
+						<h:outputText value="#{item.getData(2)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(3).displayName}">
+						<h:outputText value="#{item.getData(3)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(4).displayName}">
+						<h:outputText value="#{item.getData(4)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(5).displayName}">
+						<h:outputText value="#{item.getData(5)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(6).displayName}">
+						<h:outputText value="#{item.getData(6)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(7).displayName}">
+						<h:outputText value="#{item.getData(7)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(8).displayName}">
+						<h:outputText value="#{item.getData(8)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(9).displayName}">
+						<h:outputText value="#{item.getData(9)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(10).displayName}">
+						<h:outputText value="#{item.getData(10)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(11).displayName}">
+						<h:outputText value="#{item.getData(11)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(12).displayName}">
+						<h:outputText value="#{item.getData(12)}" />
+					</p:column>
+					<p:column headerText="#{webReportingHandler.column(13).displayName}">
+						<h:outputText value="#{item.getData(13)}" />
+					</p:column>
+				</p:dataTable>
+			</p:outputPanel>
+		</p:panel>
+	</ui:composition>
+</html>

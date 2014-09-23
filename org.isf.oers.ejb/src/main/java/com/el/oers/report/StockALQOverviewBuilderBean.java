@@ -12,6 +12,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.isf.commons.DateUtil;
@@ -21,6 +22,7 @@ import org.isf.commons.data.Column;
 import org.isf.commons.data.Container;
 import org.isf.commons.data.Filter;
 import org.isf.commons.data.Tuple;
+import org.isf.oers.system.service.OERSConcurrentTinyCache;
 
 @Stateless 
 public class StockALQOverviewBuilderBean implements Serializable {
@@ -47,6 +49,9 @@ public class StockALQOverviewBuilderBean implements Serializable {
 	@Resource(mappedName="java:/AtlasDSXA")
 	private DataSource atlasDS;
 	
+	@Inject
+	private OERSConcurrentTinyCache cache;
+	
 	protected Connection getConnection() throws SQLException { return atlasDS.getConnection(); }
 	
 	protected String buildPivotSelect(Date[] dates) {
@@ -59,8 +64,11 @@ public class StockALQOverviewBuilderBean implements Serializable {
 		return select;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Tuple> build(String country, String devision, Date ... dates) throws Exception {
-		if (dates.length<2) return new ArrayList<Tuple>();
+		if (dates.length<1) return new ArrayList<Tuple>();
+		String key = country+"."+devision+"."+DateUtil.toString("yyyy-MM-dd",dates[0])+"-"+DateUtil.toString("yyyy-MM-dd",dates[dates.length-1]);
+		if (cache.hasCachedData(key)) return (List<Tuple>)cache.getCachedData(key);
 		Connection con = getConnection();
 		try {
 			PreparedStatement pstmt = null;
@@ -149,7 +157,9 @@ public class StockALQOverviewBuilderBean implements Serializable {
 							t.addData(st.getData(j));
 						output.addTuple(t);
 					}
-				return output.list();
+				List<Tuple> ret = output.list();
+				cache.putCachedData(key, ret);
+				return ret;
 			} finally {
 				try { res.close(); } catch(Exception e) { }
 				try { pstmt.close(); } catch(Exception e) { }

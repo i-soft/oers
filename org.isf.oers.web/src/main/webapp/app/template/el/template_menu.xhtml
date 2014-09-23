@@ -12,7 +12,7 @@
 <h:body>
 	<f:facet name="last">
 		<h:outputStylesheet library="el" name="css/el-style.css" />
-		<h:outputStylesheet library="el" name="css/nav.css" />
+		<h:outputStylesheet library="el" name="css/nav.css" />		
 	</f:facet>
 	
 	<div id="app-page">
@@ -30,8 +30,13 @@
 			</ui:insert>
 		</div>
 		<div id="app-shadow-box"></div>
-		<div id="app-content">
-			<ui:insert name="app-content">
+		<div id="app-left-menu">
+			<ui:insert name="app-left-menu">
+				<ui:include src="/app/template/el/left_menu.xhtml" />
+			</ui:insert>
+		</div>
+		<div id="app-content-right">
+			<ui:insert name="app-content-right">
 				<ui:include src="/app/template/common/content.xhtml" />
 			</ui:insert>
 		</div>
